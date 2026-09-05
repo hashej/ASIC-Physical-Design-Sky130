@@ -1,0 +1,7 @@
+*.zip
+*.log
+runs/
+*.mti
+*.mpf
+*.wlf
+.DS_Store
