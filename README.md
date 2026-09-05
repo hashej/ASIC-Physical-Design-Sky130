@@ -23,7 +23,7 @@ This repository spans arithmetic accelerators, communication peripherals, microp
 | :---: | :---: |
 | ![SPM GDS](serial_parallel_multiplier/images/spm_layout.png) | ![UART GDS](uart_transceiver/images/uart_layout.png) |
 | **Single-Cycle RISC-V Core** | **Hierarchical Macro Placement** |
-| ![RISC-V GDS](riscv_core/images/final_gds.png) | ![Macro Placement GDS](manual_macro_placement/images/macro_layout.png) |
+| ![RISC-V GDS](riscv_core/images/final_gds.png) | ![Macro Placement GDS](manual_macro_placement/images/gds_layout.png) |
 
 ---
 
