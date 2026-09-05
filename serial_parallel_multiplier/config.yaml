@@ -1,48 +1,39 @@
 DESIGN_NAME: spm
 VERILOG_FILES: dir::src/*.v
-CLOCK_PERIOD: 10
-CLOCK_PORT: clk
 PNR_SDC_FILE: dir::src/impl.sdc
 SIGNOFF_SDC_FILE: dir::src/signoff.sdc
 
-# PDN
+# Clock configuration (Combinational design)
+CLOCK_PERIOD: 0
+CLOCK_PORT: null
+DESIGN_IS_CORE: true
+
+# PDN Configuration
 PDN_CORE_RING: true
 PDN_ENABLE_RAILS: true
 PDN_HORIZONTAL_LAYER: met5
 PDN_VERTICAL_LAYER: met4
 PDN_HWIDTH: 3.1
 PDN_VWIDTH: 3.1
-PDN_HPITCH: 153.6
-PDN_VPITCH: 153.6
+PDN_HPITCH: 120
+PDN_VPITCH: 120
 PDN_HOFFSET: 16.32
 PDN_VOFFSET: 16.32
 
-# Pin Order
+# Pin Ordering
 IO_PIN_ORDER_CFG: dir::pin_order.cfg
 
-# Technology-Specific Configs
+# Technology Configuration
 pdk::sky130*:
-  FP_CORE_UTIL: 50
-  CLOCK_PERIOD: 10.0
-  DIE_AREA : [0,0,148,148]
-  CORE_AREA : [10,10,138,138]
-  FP_SIZING : "absolute"
-  
-  # --- Placement Variables ---
-  PL_TARGET_DENSITY: 0.5
-  PL_TIME_DRIVEN: true
-  PL_ROUTABILITY_DRIVEN: true
-  PL_RESIZER_TIMING_OPTIMIZATION: true
-  GPL_CELL_PADDING: 4
-  DPL_CELL_PADDING: 2
+  FP_SIZING: "absolute"
+  DIE_AREA: [0, 0, 500, 500]
+  CORE_AREA: [20, 20, 480, 480]
+  FP_CORE_UTIL: 45
 
-  scl::sky130_fd_sc_hs:
-    CLOCK_PERIOD: 8
-  scl::sky130_fd_sc_ls:
-    MAX_FANOUT_CONSTRAINT: 5
-    
-pdk::gf180mcu*:
-  CLOCK_PERIOD: 24.0
-  FP_CORE_UTIL: 38
-  MAX_FANOUT_CONSTRAINT: 4
-  PL_TARGET_DENSITY: 0.5
+  # Placement Variables
+  PL_TARGET_DENSITY: 0.50
+  PL_TIME_DRIVEN: false
+  PL_ROUTABILITY_DRIVEN: true
+  PL_RESIZER_TIMING_OPTIMIZATION: false
+  GPL_CELL_PADDING: 1
+  DPL_CELL_PADDING: 1
